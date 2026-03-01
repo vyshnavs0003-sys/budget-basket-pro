@@ -7,12 +7,12 @@ const TopBar = () => {
     <div className="topbar topbar-green">
       <div className="container d-flex justify-content-between align-items-center">
 
-        {/* Left Side: Email */}
+        {/* Email */}
         <div className="topbar-left">
           <span className="topbar-email">info@budgetbasket.com</span>
         </div>
 
-        {/* Right Side: Locations + Links */}
+        {/* Locations and Links */}
         <div className="topbar-right d-flex align-items-center gap-3">
 
           {/* Locations Dropdown */}

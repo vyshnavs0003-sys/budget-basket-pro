@@ -66,4 +66,134 @@
   color: #64748b;
 }
 
+/* ================= FOOTER MOBILE RESPONSIVE ================= */
 
+@media screen and (max-width: 768px) {
+  .footer-section {
+    padding: 40px 0 80px; 
+    text-align: center;
+  }
+
+  .footer-logo {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+
+  .footer-tagline {
+    font-size: 13px;
+    max-width: 280px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .social-icons {
+    justify-content: center;
+    display: flex;
+    gap: 20px;
+    margin: 20px 0;
+  }
+
+  .social-icons svg {
+    font-size: 22px;
+    margin-right: 0;
+  }
+
+  .footer-title {
+    margin-top: 25px;
+    margin-bottom: 12px;
+    font-size: 16px;
+    position: relative;
+    display: inline-block;
+  }
+
+  .footer-title::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 25%;
+    width: 50%;
+    height: 2px;
+    background: #22c55e;
+  }
+
+  /* ===== QUICK LINKS and CATEGORIES ===== */
+  .col-6.col-md-2 .footer-links,
+  .col-6.col-md-3 .footer-links {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px 8px;
+    padding: 0 10px;
+  }
+
+  .col-6.col-md-2 .footer-links li,
+  .col-6.col-md-3 .footer-links li {
+    margin: 0;
+    width: 100%;
+    text-align: center;
+  }
+
+  .col-6.col-md-2 .footer-links a,
+  .col-6.col-md-3 .footer-links a {
+    background: none;  
+    padding: 5px 0;    
+    font-size: 13px;
+    color: #cbd5e1;
+    display: inline-block;
+    border-radius: 0; 
+    transition: 0.3s;
+  }
+
+  .col-6.col-md-2 .footer-links a:hover,
+  .col-6.col-md-3 .footer-links a:hover {
+    background: none;  
+    color: #22c55e;    
+    transform: translateY(-2px);
+  }
+
+  /* ===== CONTACT SECTION  ===== */
+  .col-12.col-md-3 p {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-size: 13px;
+    margin-bottom: 12px;
+    background: #1e293b;
+    padding: 10px;
+    border-radius: 30px;
+  }
+
+  .col-12.col-md-3 svg {
+    color: #22c55e;
+    font-size: 16px;
+  }
+
+  /* Footer bottom */
+  .footer-bottom {
+    margin-top: 30px;
+    padding-top: 15px;
+    font-size: 12px;
+  }
+}
+
+/* Small mobile */
+@media screen and (max-width: 480px) {
+  .col-6.col-md-2 .footer-links a,
+  .col-6.col-md-3 .footer-links a {
+    font-size: 11px;
+  }
+
+  .col-6.col-md-2 .footer-links,
+  .col-6.col-md-3 .footer-links {
+    gap: 8px 5px;
+  }
+
+  .footer-title {
+    font-size: 15px;
+  }
+
+  .col-12.col-md-3 p {
+    font-size: 12px;
+    padding: 8px;
+  }
+}

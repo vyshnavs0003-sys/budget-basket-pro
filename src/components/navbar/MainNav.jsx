@@ -1,46 +1,69 @@
-import React from "react";
-import { FaShoppingCart } from "react-icons/fa";
+import React, { useState } from "react";
+import { FaShoppingCart, FaSearch, FaBars } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import logoIcon from "../../assets/icons/logo-icon.png";
 import logoText from "../../assets/icons/logo-text.png";
 import "./Navbar.css";
 
-const MainNav = () => {
+const MainNav = ({ cartCount = 2, remainingBudget = 1200, onSearchClick, onMenuClick }) => {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const handleMenuClick = () => {
+    setMobileMenuOpen(!mobileMenuOpen);
+    if (onMenuClick) onMenuClick();
+  };
+
   return (
-    <div className="mainnav shadow-sm">
-      <div className="container d-flex justify-content-between align-items-center">
-
-        {/* Logo Section */}
-        <Link to="/" className="logo-container">
-          <img src={logoIcon} alt="Logo Icon" className="logo-icon" />
-          <img src={logoText} alt="BudgetBasket" className="logo-text" />
-        </Link>
-
-        {/* Search */}
-        <div className="search-box">
-          <input
-            type="text"
-            placeholder="Search products..."
-            className="search-input"
+    <>
+      <div className="mainnav shadow-sm">
+        <div className="container">
+          
+          <FaBars 
+            className="hamburger-icon mobile-only" 
+            onClick={handleMenuClick}
           />
-          <button className="search-btn">Search</button>
-        </div>
 
-        {/* Cart + Remaining */}
-        <div className="cart-remaining">
-          <div className="cart-section">
-            <FaShoppingCart size={22} />
-            <span className="cart-badge">2</span>
+          <Link to="/" className="logo-container">
+            <img src={logoIcon} alt="Logo Icon" className="logo-icon" />
+            <img src={logoText} alt="BudgetBasket" className="logo-text" />
+          </Link>
+
+          <div className="search-box desktop-only">
+            <input
+              type="text"
+              placeholder="Search products..."
+              className="search-input"
+            />
+            <button className="search-btn">Search</button>
           </div>
 
-          <div className="remaining-badge">
-            ₹ 1200 Remaining
+          <div className="right-section">
+            <FaSearch 
+              className="search-icon mobile-only" 
+              onClick={onSearchClick}
+            />
+            
+            <Link to="/cart" className="cart-section">
+              <FaShoppingCart size={22} />
+              <span className="cart-badge">{cartCount}</span>
+            </Link>
+            
+            <div className="remaining-badge desktop-only">
+              ₹ {remainingBudget} Remaining
+            </div>
           </div>
-        </div>
 
+        </div>
       </div>
-    </div>
+
+      <div className="mobile-budget-bar mobile-only">
+        <div className="mobile-budget-badge">
+          ₹ {remainingBudget} Remaining
+        </div>
+      </div>
+    </>
   );
 };
 
 export default MainNav;
+
