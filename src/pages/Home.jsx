@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./Home.css"
 import MyBasket from "../components/ui/MyBasket";
 import CategoryCard from "../components/ui/CategoryCard";
-import ProductCard from "../components/ui/productCard";
+import ProductCard from "../components/ui/ProductCard";
 import OfferCard from "../components/ui/OfferCard";
 import HowItWorks from "../components/ui/HowItWorks";
 
@@ -15,7 +15,6 @@ import homeCareImg from "../assets/images/home-care.jpg";
 import personalCareImg from "../assets/images/personal-care.jpg";
 import babyCareImg from "../assets/images/baby-care.jpg";
 
-// Import products data
 import productsData from "../data/products.json";
 
 const Home = () => {
@@ -108,7 +107,6 @@ const Home = () => {
     },
   ];
 
-  // List of categories for product rows
   const productCategories = [
     "Fruits & Vegetables",
     "Grocery & Staples",
@@ -121,12 +119,9 @@ const Home = () => {
   ];
 
   useEffect(() => {
-    // Load products from JSON
     setProducts(productsData.products || productsData);
-    console.log("Product images:", productsData.products.map(p => p.image));
   }, []);
 
-  // Get products by category (max 5)
   const getProductsByCategory = (categoryName) => {
     return products.filter(p => p.category === categoryName).slice(0, 5);
   };
@@ -141,7 +136,7 @@ const Home = () => {
 
   return (
     <div>
-      {/* Custom Modern Banner Section */}
+      {/* Hero Banner Section */}
       <section className="custom-banner-section py-3">
         <div className="container">
           <div className="banner-wrapper">
@@ -159,7 +154,6 @@ const Home = () => {
                   height: '350px',
                   boxShadow: '0 20px 40px rgba(0,0,0,0.15)'
                 }}>
-                  {/* Background Image with better visibility */}
                   <div style={{
                     position: 'absolute',
                     top: 0,
@@ -173,7 +167,6 @@ const Home = () => {
                     mixBlendMode: 'overlay'
                   }}></div>
 
-                  {/* Content with better text styling */}
                   <div className="banner-content" style={{
                     position: 'relative',
                     zIndex: 2,
@@ -246,12 +239,11 @@ const Home = () => {
                         e.target.style.boxShadow = '0 15px 30px rgba(0,0,0,0.3)';
                         e.target.style.background = 'white';
                       }}>
-                        Shop Now <span style={{ fontSize: '20px' }}>→</span>
+                        Shop Now →
                       </button>
                     </div>
                   </div>
 
-                  {/* Decorative Elements */}
                   <div style={{
                     position: 'absolute',
                     bottom: '-60px',
@@ -276,7 +268,6 @@ const Home = () => {
               </div>
             ))}
 
-            {/* Navigation Arrows */}
             <button className="banner-nav prev" onClick={prevSlide} style={{
               position: 'absolute',
               top: '50%',
@@ -340,7 +331,6 @@ const Home = () => {
               ›
             </button>
 
-            {/* Dots Indicator */}
             <div className="banner-dots" style={{
               position: 'absolute',
               bottom: '20px',
@@ -382,15 +372,13 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Section 2: Categories + MyBasket side by side */}
+      {/* Categories Section */}
       <section className="py-4">
         <div className="container">
           <div className="row">
-            {/* Left side - Categories (8 columns) */}
             <div className="col-md-8">
               <h2 className="section-title mb-4">Shop by Category</h2>
               
-              {/* First row - 4 categories */}
               <div className="row">
                 {categories.slice(0, 4).map((category, index) => (
                   <div key={index} className="col-md-3 col-6 mb-4">
@@ -404,7 +392,6 @@ const Home = () => {
                 ))}
               </div>
 
-              {/* Second row - 4 categories */}
               <div className="row">
                 {categories.slice(4, 8).map((category, index) => (
                   <div key={index + 4} className="col-md-3 col-6 mb-4">
@@ -419,7 +406,6 @@ const Home = () => {
               </div>
             </div>
 
-            {/* Right side - MyBasket (4 columns) */}
             <div className="col-md-4">
               <MyBasket />
             </div>
@@ -427,60 +413,59 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Section 3: Offer Cards */}
-<section className="py-4">
-  <div className="container">
-    <h2 className="section-title mb-4">Special Offers</h2>
-    <div className="offers-container">
-      <OfferCard 
-        title="Buy 1 Get 1 Free"
-        description="On all snacks & beverages"
-        image="/src/assets/images/offers/bogo.jpg"
-        type="bogo"
-      />
-      <OfferCard 
-        title="Weekend Special"
-        description="Up to 40% off on groceries"
-        image="/src/assets/images/offers/weekend.jpg"
-        type="weekend"
-      />
-    </div>
-  </div>
-</section>
+      {/* Offers Section */}
+      <section className="py-4">
+        <div className="container">
+          <h2 className="section-title mb-4">Special Offers</h2>
+          <div className="offers-container">
+            <OfferCard 
+              title="Buy 1 Get 1 Free"
+              description="On all snacks & beverages"
+              image="/src/assets/images/offers/bogo.jpg"
+              type="bogo"
+            />
+            <OfferCard 
+              title="Weekend Special"
+              description="Up to 40% off on groceries"
+              image="/src/assets/images/offers/weekend.jpg"
+              type="weekend"
+            />
+          </div>
+        </div>
+      </section>
 
-      {/* Section 4: Category Product Rows */}
-{productCategories.map((category) => {
-  const categoryProducts = getProductsByCategory(category);
-  if (categoryProducts.length === 0) return null;
+      {/* Product Rows */}
+      {productCategories.map((category) => {
+        const categoryProducts = getProductsByCategory(category);
+        if (categoryProducts.length === 0) return null;
 
-  return (
-    <section key={category} className="category-row py-4">
-      <div className="container">
-        <h2 className="section-title mb-4">{category}</h2>
+        return (
+          <section key={category} className="category-row py-4">
+            <div className="container">
+              <h2 className="section-title mb-4">{category}</h2>
 
-        <div className="row">
-          {categoryProducts.map(product => (
-            <div key={product.id} className="col-lg-2 col-md-3 col-6 mb-3">
-              <ProductCard product={product} />
+              <div className="row">
+                {categoryProducts.map(product => (
+                  <div key={product.id} className="col-lg-2 col-md-3 col-6 mb-3">
+                    <ProductCard product={product} />
+                  </div>
+                ))}
+              </div>
+
+              <div className="text-center mt-3">
+                <button 
+                  className="view-all-btn"
+                  onClick={() => window.location.href = `/category/${category.toLowerCase().replace(/ & /g, '-').replace(/ /g, '-')}`}
+                >
+                  View All {category} →
+                </button>
+              </div>
             </div>
-          ))}
-        </div>
+          </section>
+        );
+      })}
 
-        {/* View All Button at bottom */}
-        <div className="text-center mt-3">
-          <button 
-            className="view-all-btn"
-            onClick={() => window.location.href = `/category/${category.toLowerCase().replace(/ & /g, '-').replace(/ /g, '-')}`}
-          >
-            View All {category} <span style={{ fontSize: '18px' }}>→</span>
-          </button>
-        </div>
-      </div>
-    </section>
-  );
-})}
-
-      {/* Section 5: How It Works */}
+      {/* How It Works */}
       <section>
         <HowItWorks />
       </section>
