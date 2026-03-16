@@ -1,0 +1,40 @@
+
+.no-offers-card {
+  background: white;
+  border-radius: 15px;
+  padding: 50px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.no-offers-card img {
+  width: 150px;
+  margin-bottom: 20px;
+  opacity: 0.5;
+}
+
+.no-offers-card h3 {
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.no-offers-card p {
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.shop-now-btn {
+  background: #28a745;
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 25px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.shop-now-btn:hover {
+  background: #218838;
+}

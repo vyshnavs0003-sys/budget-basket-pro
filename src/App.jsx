@@ -3,7 +3,6 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Layout from "./components/layout/Layout";
 
-// Pages
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Cart from "./pages/Cart";
@@ -17,6 +16,9 @@ import Offers from "./pages/Offers";
 import CancellationRefund from "./pages/CancellationRefund";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import Terms from "./pages/Terms";
+
+
+
 
 function App() {
   return (
@@ -46,6 +48,8 @@ function App() {
 
           {/* Dynamic Category Route */}
           <Route path="category/:categoryName" element={<Category />} />
+         
+
 
         </Route>
       </Routes>
